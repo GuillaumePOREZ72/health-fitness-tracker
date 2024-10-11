@@ -1,18 +1,15 @@
-import React from "react";
 import { Link } from "react-router-dom";
-import {
-  Sun,
-  Moon,
-  Home,
-  Activity,
-  Utensils,
-  User,
-  BarChart2,
-} from "lucide-react";
-import { useTheme } from "../contexts/ThemeContext";
+import React, { useState } from "react";
+import { Home, Activity, Utensils, User, BarChart2 } from "lucide-react";
+import DarkMode from "./DarkMode";
+import Hamburger from "./Hamburger";
 
 const Navbar = () => {
-  const { theme, toggleTheme } = useTheme();
+  const [isOpen, setIsOpen] = useState(false);
+
+  const handleToggle = () => {
+    setIsOpen(!isOpen);
+  };
 
   return (
     <nav className="bg-white dark:bg-gray-800 shadow-lg">
@@ -26,7 +23,7 @@ const Navbar = () => {
               <Activity size={24} />
               <span>FitTrack</span>
             </Link>
-            <div className="hidden md:flex space-x-4">
+            <div className="hidden sm:flex space-x-4">
               <NavLink to="/" icon={<Home size={18} />} text="Accueil" />
               <NavLink
                 to="/dashboard"
@@ -46,12 +43,32 @@ const Navbar = () => {
               <NavLink to="/profile" icon={<User size={18} />} text="Profil" />
             </div>
           </div>
-          <button
-            onClick={toggleTheme}
-            className="p-2 rounded-full bg-gray-200 dark:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-          >
-            {theme === "dark" ? <Sun size={20} /> : <Moon size={20} />}
-          </button>
+          <div className="sm:hidden">
+            <Hamburger isOpen={isOpen} toggled={handleToggle} />
+          </div>
+          <div className="sm:hidden">
+            <div className={`flex flex-col ${isOpen ? "block" : "hidden"}`}>
+              <NavLink to="/" icon={<Home size={18} />} text="Accueil" />
+              <NavLink
+                to="/dashboard"
+                icon={<BarChart2 size={18} />}
+                text="Tableau de bord"
+              />
+              <NavLink
+                to="/fitness"
+                icon={<Activity size={18} />}
+                text="Fitness"
+              />
+              <NavLink
+                to="/nutrition"
+                icon={<Utensils size={18} />}
+                text="Nutrition"
+              />
+              <NavLink to="/profile" icon={<User size={18} />} text="Profil" />
+            </div>
+          </div>
+
+          <DarkMode />
         </div>
       </div>
     </nav>
@@ -65,7 +82,7 @@ const NavLink: React.FC<{
 }> = ({ to, icon, text }) => (
   <Link
     to={to}
-    className="flex items-center space-x-1 text-gray-700 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400"
+    className="flex items-center space-x-1 text-gray-700 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 my-2"
   >
     {icon}
     <span>{text}</span>

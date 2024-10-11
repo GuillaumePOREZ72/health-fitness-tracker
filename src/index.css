@@ -1,11 +1,17 @@
+@import url("https://fonts.googleapis.com/css2?family=Afacad+Flux:wght@100..1000&family=Coming+Soon&display=swap");
+
 @import "tailwindcss/base";
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
 
 body {
-  font-family: "Inter", sans-serif;
+  font-family: "Afacad Flux", sans-serif;
+  background-color: #f8fafc; /* gray-100 */
+  color: #1f2937; /* gray-900 */
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-.dark {
-  color-scheme: dark;
+body.dark {
+  background-color: #112748; /* slate-900 */
+  color: #a0badd; /* gray-100 */
 }

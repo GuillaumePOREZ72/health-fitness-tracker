@@ -21,6 +21,15 @@ interface Meal {
   fat: number;
 }
 
+/**
+ * Page de suivi nutritionnel.
+ *
+ * Cette page affiche un formulaire pour ajouter un repas, un tableau des repas
+ * déjà ajoutés, un graphique en barres représentant la répartition des
+ * macronutriments, et un résumé des valeurs nutritionnelles totales.
+ *
+ * @returns {JSX.Element} L'élément JSX de la page.
+ */
 const Nutrition: React.FC = () => {
   const [meals, setMeals] = useState<Meal[]>([
     {
@@ -79,6 +88,13 @@ const Nutrition: React.FC = () => {
     fat: 0,
   });
 
+  /**
+   * Met à jour l'état `newMeal` en fonction de la modification d'un
+   * input de formulaire.
+   *
+   * @param {React.ChangeEvent<HTMLInputElement>} e L'événement de
+   *    changement de valeur.
+   */
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     setNewMeal((prev) => ({ ...prev, [name]: value }));

@@ -5,7 +5,7 @@ import { Activity, Utensils, TrendingUp } from "lucide-react";
 const Home: React.FC = () => {
   return (
     <div className="space-y-8">
-      <h1 className="text-4xl font-bold text-center mb-8">
+      <h1 className="text-4xl font-bold  text-center mb-8">
         Bienvenue sur FitTrack
       </h1>
       <div className="grid md:grid-cols-2 gap-8">
@@ -27,14 +27,14 @@ const Home: React.FC = () => {
           <TrendingUp className="mr-2" /> Commencez votre voyage vers une
           meilleure santé
         </h2>
-        <p className="mb-4">
+        <p className="text-gray-600 dark:text-gray-300">
           FitTrack vous aide à atteindre vos objectifs de santé et de forme
           physique en vous fournissant des outils puissants pour suivre vos
           progrès.
         </p>
         <Link
           to="/profile"
-          className="inline-block bg-indigo-600 text-white px-4 py-2 rounded-md hover:bg-indigo-700 transition-colors duration-300"
+          className="inline-block bg-indigo-600 text-white px-4 py-2 mt-2 rounded-md hover:bg-indigo-700 transition-colors duration-300"
         >
           Configurez votre profil
         </Link>
