@@ -6,12 +6,20 @@
 
 body {
   font-family: "Afacad Flux", sans-serif;
-  background-color: #f8fafc; /* gray-100 */
-  color: #1f2937; /* gray-900 */
+  background-image: linear-gradient(
+    to right,
+    #f8fafc,
+    #e2e8f0
+  ); /* Light gradient */
+  color: #1f2937;
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 body.dark {
-  background-color: #112748; /* slate-900 */
-  color: #a0badd; /* gray-100 */
+  background-image: linear-gradient(
+    to right,
+    #112748,
+    #1e293b
+  ); /* Dark gradient */
+  color: #8aa1c0; /* gray-100 */
 }

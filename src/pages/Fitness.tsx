@@ -19,6 +19,15 @@ interface Workout {
   calories: number;
 }
 
+/**
+ * Page de suivi des entraînements.
+ *
+ * Cette page affiche un formulaire pour ajouter un entraînement, un tableau des
+ * entraînements déjà ajoutés, un graphique en barres représentant la répartition
+ * des durées et des calories brûlées, et un résumé des valeurs totales.
+ *
+ * @returns {JSX.Element} L'élément JSX de la page.
+ */
 const Fitness: React.FC = () => {
   const [workouts, setWorkouts] = useState<Workout[]>([
     { id: 1, date: "2023-03-15", type: "Course", duration: 30, calories: 300 },
@@ -53,11 +62,24 @@ const Fitness: React.FC = () => {
     calories: 0,
   });
 
+  /**
+   * Met à jour l'état `newWorkout` en fonction de la modification d'un
+   * input de formulaire.
+   *
+   * @param {React.ChangeEvent<HTMLInputElement>} e
+   *   L'événement de changement de valeur.
+   */
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     setNewWorkout((prev) => ({ ...prev, [name]: value }));
   };
 
+  /**
+   * Envoie le formulaire pour ajouter un entrainement et met à jour l'état
+   * `workouts` et `newWorkout`.
+   *
+   * @param {React.FormEvent} e L'événement de soumission du formulaire.
+   */
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     const workout: Workout = {
@@ -111,14 +133,14 @@ const Fitness: React.FC = () => {
               name="calories"
               value={newWorkout.calories}
               onChange={handleInputChange}
-              placeholder="Calories brûlées"
+              placeholder="Calories brulées"
               className="w-full p-2 border rounded dark:bg-gray-700 dark:border-gray-600"
               required
             />
           </div>
           <button
             type="submit"
-            className="w-full bg-indigo-600 text-white py-2 px-4 rounded hover:bg-indigo-700 transition-colors duration-300"
+            className="w-full bg-indigo-600 text-white py-2 px-4 rounded hover:bg-indigo-800 transition-colors duration-300"
           >
             Ajouter l'entraînement
           </button>

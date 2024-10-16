@@ -68,7 +68,9 @@ const Navbar = () => {
             </div>
           </div>
 
-          <DarkMode />
+          <div className="hover:text-indigo-600 dark:hover:text-indigo-400 transition-all duration-300 ease-in-out transform hover:scale-105 hover:opacity-75">
+            <DarkMode />
+          </div>
         </div>
       </div>
     </nav>
@@ -82,7 +84,7 @@ const NavLink: React.FC<{
 }> = ({ to, icon, text }) => (
   <Link
     to={to}
-    className="flex items-center space-x-1 text-gray-700 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 my-2"
+    className="flex items-center space-x-1 text-gray-700 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 my-2 transition-all duration-300 ease-in-out transform hover:scale-105 hover:opacity-75"
   >
     {icon}
     <span>{text}</span>

@@ -100,6 +100,12 @@ const Nutrition: React.FC = () => {
     setNewMeal((prev) => ({ ...prev, [name]: value }));
   };
 
+  /**
+   * Envoie le formulaire pour ajouter un repas et met à jour l'état
+   * `meals` et `newMeal`.
+   *
+   * @param {React.FormEvent} e L'événement de soumission du formulaire.
+   */
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     const meal: Meal = {
@@ -288,6 +294,14 @@ const Nutrition: React.FC = () => {
   );
 };
 
+/**
+ * Un composant qui affiche une statistique nutritionnelle
+ * avec une étiquette, une valeur, une unité et une couleur.
+ *
+ * @param {{ label: string; value: number; unit: string; color: string }}
+ *   Les propriétés du composant.
+ * @returns {React.ReactElement} Le composant.
+ */
 const NutritionStat: React.FC<{
   label: string;
   value: number;

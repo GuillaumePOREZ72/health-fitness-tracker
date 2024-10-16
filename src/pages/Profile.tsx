@@ -9,6 +9,12 @@ interface UserProfile {
   goal: string;
 }
 
+/**
+ * Un composant qui affiche les informations de l'utilisateur
+ * et permet de les modifier.
+ *
+ * @returns {React.ReactElement} Le composant.
+ */
 const Profile: React.FC = () => {
   const [profile, setProfile] = useState<UserProfile>({
     name: "John Doe",
@@ -20,6 +26,13 @@ const Profile: React.FC = () => {
 
   const [isEditing, setIsEditing] = useState(false);
 
+  /**
+   * Met à jour l'état `profile` en fonction de la modification d'un
+   * input de formulaire.
+   *
+   * @param {React.ChangeEvent<HTMLInputElement | HTMLSelectElement>} e
+   *   L'événement de changement de valeur.
+   */
   const handleInputChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
   ) => {
@@ -27,10 +40,16 @@ const Profile: React.FC = () => {
     setProfile((prev) => ({ ...prev, [name]: value }));
   };
 
+  /**
+   * Envoie le formulaire pour modifier le profil et met à jour
+   * l'état `isEditing` pour cacher le formulaire.
+   *
+   * @param {React.FormEvent} e L'événement de soumission du formulaire.
+   */
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setIsEditing(false);
-    // Here you would typically save the profile to a backend
+
     console.log("Profile saved:", profile);
   };
 

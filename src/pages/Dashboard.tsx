@@ -29,6 +29,12 @@ const nutritionData = [
   { date: "2023-03-19", calories: 980, protein: 48, carbs: 115, fat: 33 },
 ];
 
+/**
+ * La page du tableau de bord affiche les activités physiques récentes, l'apport
+ * nutritionnel récent, ainsi qu'un résumé des performances de la semaine.
+ *
+ * @returns {JSX.Element} L'élément JSX de la page.
+ */
 const Dashboard: React.FC = () => {
   return (
     <div className="space-y-8">
@@ -132,6 +138,13 @@ const Dashboard: React.FC = () => {
   );
 };
 
+/**
+ * Un composant qui affiche des statistiques.
+ *
+ * @param {{ icon: React.ReactNode; title: string; value: string; description: string }} props
+ *   Les propriétés du composant.
+ * @returns {React.ReactElement} Le composant.
+ */
 const StatCard: React.FC<{
   icon: React.ReactNode;
   title: string;
