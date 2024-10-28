@@ -17,11 +17,11 @@ interface UserProfile {
  */
 const Profile: React.FC = () => {
   const [profile, setProfile] = useState<UserProfile>({
-    name: "John Doe",
-    age: 30,
-    height: 175,
-    weight: 70,
-    goal: "Perdre du poids",
+    name: "",
+    age: 0,
+    height: 0,
+    weight: 0,
+    goal: "",
   });
 
   const [isEditing, setIsEditing] = useState(false);
@@ -75,7 +75,7 @@ const Profile: React.FC = () => {
                 name="name"
                 value={profile.name}
                 onChange={handleInputChange}
-                className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 dark:bg-gray-700 dark:border-gray-600"
+                className="mt-1 pl-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 dark:bg-gray-700 dark:border-gray-600"
               />
             </div>
             <div>
@@ -91,7 +91,7 @@ const Profile: React.FC = () => {
                 name="age"
                 value={profile.age}
                 onChange={handleInputChange}
-                className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 dark:bg-gray-700 dark:border-gray-600"
+                className="mt-1 pl-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 dark:bg-gray-700 dark:border-gray-600"
               />
             </div>
             <div>
@@ -107,7 +107,7 @@ const Profile: React.FC = () => {
                 name="height"
                 value={profile.height}
                 onChange={handleInputChange}
-                className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 dark:bg-gray-700 dark:border-gray-600"
+                className="mt-1 pl-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 dark:bg-gray-700 dark:border-gray-600"
               />
             </div>
             <div>
@@ -123,7 +123,7 @@ const Profile: React.FC = () => {
                 name="weight"
                 value={profile.weight}
                 onChange={handleInputChange}
-                className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 dark:bg-gray-700 dark:border-gray-600"
+                className="mt-1 pl-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 dark:bg-gray-700 dark:border-gray-600"
               />
             </div>
             <div>
@@ -138,7 +138,7 @@ const Profile: React.FC = () => {
                 name="goal"
                 value={profile.goal}
                 onChange={handleInputChange}
-                className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 dark:bg-gray-700 dark:border-gray-600"
+                className="mt-1 pl-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 dark:bg-gray-700 dark:border-gray-600"
               >
                 <option>Perdre du poids</option>
                 <option>Prendre du muscle</option>
@@ -162,7 +162,7 @@ const Profile: React.FC = () => {
             <ProfileItem label="Objectif" value={profile.goal} />
             <button
               onClick={() => setIsEditing(true)}
-              className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+              className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-lg font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
             >
               Modifier le profil
             </button>

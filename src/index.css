@@ -6,10 +6,11 @@
 
 body {
   font-family: "Afacad Flux", sans-serif;
+  font-size: large;
   background-image: linear-gradient(
     to right,
-    #f8fafc,
-    #e2e8f0
+    #ffffff,
+    #abd1ff
   ); /* Light gradient */
   color: #1f2937;
   transition: background-color 0.3s ease, color 0.3s ease;
@@ -18,8 +19,40 @@ body {
 body.dark {
   background-image: linear-gradient(
     to right,
-    #112748,
-    #1e293b
+    #303f57,
+    #03060c
   ); /* Dark gradient */
-  color: #8aa1c0; /* gray-100 */
+  color: #ffffff; /* gray-100 */
+}
+
+.light\\:bg-gray-100.dark\\:bg-gray-900 {
+  transition: background-color 0.3s ease;
+}
+
+body.dark .light\\:bg-gray-100.dark\\:bg-gray-900 {
+  background-color: #303f57;
+}
+
+.block.p-6.bg-white.dark\\:bg-gray-800.rounded-lg.shadow-md.hover\\:shadow-lg.transition-shadow.duration-300 {
+  transition: background-color 0.3s ease;
+}
+
+body.dark
+  .block.p-6.bg-white.dark\\:bg-gray-800.rounded-lg.shadow-md.hover\\:shadow-lg.transition-shadow.duration-300 {
+  background-color: #212529;
+}
+
+/* Pour le texte du logo */
+.dark .text-indigo-600 {
+  color: #818cf8; /* Indigo-400, une couleur plus claire pour le mode sombre */
+}
+
+/* Pour les liens de la navbar */
+.dark .text-gray-700 {
+  color: #ffffff;
+}
+
+/* Pour le hover des liens de la navbar */
+.dark .hover\:text-indigo-600:hover {
+  color: #818cf8; /* Indigo-400 */
 }

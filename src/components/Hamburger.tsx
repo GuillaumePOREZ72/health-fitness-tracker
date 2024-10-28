@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import { Spin as Hamburger } from "hamburger-react";
+import { Menu } from "lucide-react";
 
 /**
  * A hamburger button that can be toggled on or off.
@@ -14,7 +14,6 @@ import { Spin as Hamburger } from "hamburger-react";
 
 const HamburgerComponent: React.FC<HamburgerProps> = ({
   toggled,
-  isOpen,
   ...props
 }) => {
   /**
@@ -25,8 +24,8 @@ const HamburgerComponent: React.FC<HamburgerProps> = ({
   };
 
   return (
-    <div>
-      <Hamburger toggled={isOpen} toggle={handleToggle} size={24} {...props} />
+    <div className="flex items-center space-x-2">
+      <Menu onClick={handleToggle} size={24} {...props} />
     </div>
   );
 };

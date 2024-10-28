@@ -204,7 +204,7 @@ const Nutrition: React.FC = () => {
           </div>
           <button
             type="submit"
-            className="w-full bg-green-600 text-white py-2 px-4 rounded hover:bg-green-700 transition-colors duration-300"
+            className="w-full bg-indigo-600 text-white py-2 px-4 rounded hover:bg-indigo-800 transition-colors duration-300"
           >
             Ajouter le repas
           </button>

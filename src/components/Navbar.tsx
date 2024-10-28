@@ -4,15 +4,27 @@ import { Home, Activity, Utensils, User, BarChart2 } from "lucide-react";
 import DarkMode from "./DarkMode";
 import Hamburger from "./Hamburger";
 
-const Navbar = () => {
+/**
+ * The navbar component.
+ *
+ * This component renders a navigation bar with links to all pages. On small
+ * screens, the links are hidden and a hamburger menu is displayed. Clicking the
+ * hamburger menu toggles the visibility of the links.
+ *
+ * @returns {React.ReactElement} The navbar component.
+ */
+const Navbar = ({ children }: { children: React.ReactNode }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const handleToggle = () => {
-    setIsOpen(!isOpen);
+    setIsOpen((prev) => {
+      console.log("isOpen:", !prev);
+      return !prev;
+    }); // Toggle the isOpen state
   };
 
   return (
-    <nav className="bg-white dark:bg-gray-800 shadow-lg">
+    <nav className="light:bg-gray-100 dark:bg-gray-900 shadow-lg">
       <div className="container mx-auto px-4">
         <div className="flex justify-between items-center py-4">
           <div className="flex items-center space-x-8">
@@ -21,7 +33,7 @@ const Navbar = () => {
               className="flex items-center space-x-2 text-xl font-bold text-indigo-600 dark:text-indigo-400"
             >
               <Activity size={24} />
-              <span>FitTrack</span>
+              <span className="text-4xl">FitTrack</span>
             </Link>
             <div className="hidden sm:flex space-x-4">
               <NavLink to="/" icon={<Home size={18} />} text="Accueil" />
@@ -46,8 +58,12 @@ const Navbar = () => {
           <div className="sm:hidden">
             <Hamburger isOpen={isOpen} toggled={handleToggle} />
           </div>
-          <div className="sm:hidden">
-            <div className={`flex flex-col ${isOpen ? "block" : "hidden"}`}>
+          <div className="flex items-center space-x-4">
+            <div
+              className={`absolute right-4 top-16 bg-white dark:bg-gray-800 shadow-lg rounded-md py-2 w-48 ${
+                isOpen ? "block" : "hidden"
+              }`}
+            >
               <NavLink to="/" icon={<Home size={18} />} text="Accueil" />
               <NavLink
                 to="/dashboard"
@@ -66,29 +82,28 @@ const Navbar = () => {
               />
               <NavLink to="/profile" icon={<User size={18} />} text="Profil" />
             </div>
-          </div>
-
-          <div className="hover:text-indigo-600 dark:hover:text-indigo-400 transition-all duration-300 ease-in-out transform hover:scale-105 hover:opacity-75">
-            <DarkMode />
+            <div className="hover:text-indigo-600 dark:hover:text-indigo-400 transition-all duration-300 ease-in-out transform hover:scale-105 hover:opacity-75">
+              <DarkMode />
+            </div>
+            
           </div>
         </div>
       </div>
+      {children}
     </nav>
   );
 };
 
-const NavLink: React.FC<{
-  to: string;
-  icon: React.ReactNode;
-  text: string;
-}> = ({ to, icon, text }) => (
-  <Link
-    to={to}
-    className="flex items-center space-x-1 text-gray-700 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 my-2 transition-all duration-300 ease-in-out transform hover:scale-105 hover:opacity-75"
-  >
-    {icon}
-    <span>{text}</span>
-  </Link>
+const NavLink = React.memo(
+  ({ to, icon, text }: { to: string; icon: React.ReactNode; text: string }) => (
+    <Link
+      to={to}
+      className="flex items-center space-x-2 text-gray-700 dark:text-white hover:text-indigo-600 dark:hover:text-indigo-400 my-2 transition-all duration-300 ease-in-out transform hover:scale-105 hover:opacity-75"
+    >
+      {icon}
+      <span>{text}</span>
+    </Link>
+  )
 );
 
 export default Navbar;

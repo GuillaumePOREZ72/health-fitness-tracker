@@ -151,7 +151,9 @@ const StatCard: React.FC<{
   value: string;
   description: string;
 }> = ({ icon, title, value, description }) => (
-  <div className="bg-white dark:bg-gray-800 p-4 rounded-lg shadow">
+  <div className="bg-white dark:bg-gray-800 p-4 rounded-lg shadow-md">
+    {" "}
+    {/* Added shadow-md */}
     <div className="flex items-center mb-2">
       {icon}
       <h3 className="text-lg font-semibold ml-2">{title}</h3>
